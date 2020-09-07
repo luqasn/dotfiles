@@ -47,10 +47,16 @@ nmap <Leader><Leader> <c-^>
 nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR><Paste>
 
-call plug#begin('~/.local/share/nvim/plugged')
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
 Plug 'Shougo/unite.vim'
 " dark theme
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'Yggdroot/indentLine'
 " git status per line
@@ -93,7 +99,8 @@ call plug#end()
 
 
 
-color Dracula
+colorscheme dracula
+syntax on
 
 
 let g:indentLine_enabled = 1
