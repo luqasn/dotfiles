@@ -3,7 +3,7 @@ alias l "ls -al"
 alias vim "nvim"
 alias vi "nvim"
 
-alias config 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias dockerps 'docker ps -q | xargs docker stats --no-stream'
 
