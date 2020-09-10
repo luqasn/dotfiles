@@ -43,5 +43,3 @@ set PATH /usr/local/opt/python/libexec/bin $PATH
 export EDITOR=nvim
 export LC_ALL=en_US.UTF-8
 
-
-eval (python -m virtualfish)
