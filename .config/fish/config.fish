@@ -37,6 +37,7 @@ export GOPATH=$HOME/go
 set PATH /usr/local/opt/gettext/bin $PATH
 set PATH $PATH $GOPATH/bin $HOME/bin
 set PATH $HOME/.cargo/bin $PATH
+set PATH $HOME/.local/bin $PATH
 set PATH /usr/local/opt/python/libexec/bin $PATH
 
 export EDITOR=nvim
