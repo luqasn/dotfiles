@@ -21,5 +21,7 @@
 	pp = push -u
 [push]
 	default = current
+[rebase]
+  autoStash = true
 [status]
   showUntrackedFiles = all
