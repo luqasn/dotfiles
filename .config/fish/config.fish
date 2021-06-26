@@ -22,7 +22,7 @@ function iname
   i3-msg rename workspace to (i3-msg -t get_workspaces | jq 'map(select(.focused))[0].name' | string replace -r "(<span font_desc.*?>) (\d*)(.*?)(</span>)" "\$1 \$2: $argv \$4")
 end
 
-alias pr "git push -u && hub pull-request -o -a luqasn $argv"
+alias pr "gh pr create -a @me $argv"
 alias purge-xamarin "find . -iname 'bin' -type d -o -iname 'obj' -type d | tr '\n' '\0' | xargs -0 rm -rf"
 
 export GOPATH=$HOME/go
