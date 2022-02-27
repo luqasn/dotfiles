@@ -1,4 +1,5 @@
 set clipboard+=unnamed
+set idearefactormode=keep
 set relativenumber
 set number
 set incsearch
@@ -28,6 +29,9 @@ set textobj-entire
 
 " https://youtrack.jetbrains.com/issue/VIM-1042
 set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+map <Del> :NERDTreeFocus<CR>
 
 " https://github.com/JetBrains/ideavim/wiki/Select-mode
 " set selectmode-=template
@@ -37,54 +41,55 @@ set NERDTree
 " https://github.com/Valloric/dotfiles/blob/master/intellij/ideavimrc
 " https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
 set surround
-let mapleader = ","
+set easymotion
 
-" These are leader-based alternative shortcuts for actions whose corresponding
-" idea shortcuts require hand-stretching combinations, function keys, Home or
-" Insert.
-"
-" Shift + F6 in idea.
-" Alt + R, then R (through the menu bar) also seems to work fine.
-" map <Leader>r :action RenameElement<CR>
-" Ctrl + F12 in idea.
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 map <Leader>s <Action>(FileStructurePopup)
-map s <Action>(FileStructurePopup)
-" Perhaps just use the Idea shortcut Ctrl-Alt-B
-" Alt + N, then m (through the menu bar) also seems to work, but it is
-" non-unique.
-map <Leader>i <Action>(GotoImplementation)
-map <Leader>m <Action>(GotoImplementation)
-map <Leader>d <Action>(GotoImplementation)
-map <Leader>c <Action>(GotoClass)
-map <Leader>r <Action>(Gradle.ExecuteTask)
-map <Leader>, <Action>(Refactorings.QuickListPopupAction)
-" Alt + F7 in idea. 
-" Find usages in file is Ctrl + F7. 
-" Alt + E, then F, then U (through the menu bar) also seems to work fine.
-map <Leader>f <Action>(FindUsages)
-" Alt + Insert in idea.
+map <Leader>S <Action>(SplitVertically)
+map <Leader>j <Action>(GotoClass)
+" map <Leader>r <Action>(Gradle.ExecuteTask)
+map <Leader><BS> <Action>(Refactorings.QuickListPopupAction)
+map <Leader><CR> <Action>(RunAnything)
+map <Leader>f <Action>(GotoFile)
+map <Leader>h <Action>(SplitHorizontally)
 map <Leader>g <Action>(Generate)
-" F12 
 map <Leader>w <Action>(JumpToLastWindow)
-" Possibly redundant given "Run Anything" DoubleCtrl
 " map <Leader>r <Action>(ChooseRunConfiguration)
-map <C-e> <Action>(RecentFiles)
-map <Leader>e <Action>(RecentFiles)
+map <Leader>r <Action>(RecentFiles)
+map <Leader>u <Action>(FindUsages)
+map <Leader>U <Action>(Unsplit)
+map <Leader>z <Action>(ToggleDistractionFreeMode)
+map <Leader>/ <Action>(ShowErrorDescription)
+map <Leader>y <Action>(ReformatCode)
+map <leader>o <Action>(OptimizeImports)
+"nnoremap <c-\> <Action>(SplitVertically)
+"nnoremap <c--> <Action>(SplitHorizontally)
+"nnoremap <c-=> <Action>(Unsplit)
+nnoremap <c-m> <Action>(MoveEditorToOppositeTabGroup)
+map  Leader>m <Action>(MoveEditorToOppositeTabGroup)
+map <Enter> <Action>(ActivateTerminalToolWindow)
 
-" These shortcuts mimic the default Idea action for one edition mode, using the
-" Vim action for the other.
-"
-" Same as default IDEA action, but only in normal mode. Delete previous char
-" in insert mode.
-" See also Ctrl + Shift + H for method hierarchy, Ctrl + Alt + H for call
-" hierarchy.
-map <C-h> <Action>(TypeHierarchy)
-" Same as default IDEA action, but only in insert mode. Enter block-visual
-" mode in normal mode.
-imap <C-v> <Esc><Action>($Paste)
+map <C-e> <Action>(GotoNextError)
+map <S-C-e> <Action>(GotoPreviousError)
+"map <C-h> <Action>(TypeHierarchy)
+map <C-k> <Action>(EditorSelectWord)
 
-" I like using space for jumping to the next error or issue
-map <Space> <Action>(GotoNextError)
+"map <C-j> :m +1<CR>
+"map <C-k> :m -2<CR>
+map <M-j> <Action>(MoveStatementDown)
+map <M-k> <Action>(MoveStatementUp)
+"inoremap <C-j> <Esc>:m +1<CR>gi
+"inoremap <C-k> <Esc>:m -2<CR>gi
+
+"sethandler <c-j> a:vim
+"sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+"nnoremap <c-j> <c-w>j
+"nnoremap <c-k> <c-w>k
+
 
 " The default C-o and C-i behaviours have certain inconsistencies with
 " Vim which I can't quite pinpoint.
@@ -93,26 +98,3 @@ map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
 map g; <Action>(JumpToLastChange)
 map g, <Action>(JumpToNextChange)
-
-"
-" Here are mappings about which I'm less sure.
-
-" This is for going to related symbols. I can't find any effect in the community edition.
-" map <Leader>g :action GotoRelated<CR> 
-
-" uppercase last inserted text. Perhpas just use gU`[ instead.
-" map <Leader>u `[v`]~`]
-
-" Can also use Ctrl-Shift-[
-map <Leader>[ <Action>(EditorCodeBlockStart)
-" Can also use Ctrl-Shift-]
-map <Leader>] <Action>(EditorCodeBlockEnd)
-
-" This is Ctrl-W in the default keymap, but we are using it for Vim.
-" map <C-s> :action EditorSelectWord<CR> " somewhat unconfrotable to type
-" map <C-d> :action EditorSelectWord<CR> " ditto
-" better to use your two hands!
-map <C-k> <Action>(EditorSelectWord)
-
-" uppercase last inserted word
-imap <C-l> <Esc>bgUawea 
