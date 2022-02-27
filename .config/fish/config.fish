@@ -31,6 +31,7 @@ set PATH $PATH $GOPATH/bin $HOME/bin
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/.local/bin $PATH
 set PATH /usr/local/opt/python/libexec/bin $PATH
+set PATH /opt/homebrew/bin $PATH
 
 export EDITOR=nvim
 export LC_ALL=en_US.UTF-8
