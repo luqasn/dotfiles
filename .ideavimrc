@@ -27,6 +27,10 @@ set argtextobj
 " die dae cie cae
 set textobj-entire
 
+" Space above/beside cursor from screen edges
+set scrolloff=10
+set sidescrolloff=10
+
 " https://youtrack.jetbrains.com/issue/VIM-1042
 set NERDTree
 let g:NERDTreeMapActivateNode='l'
@@ -46,29 +50,32 @@ set easymotion
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
-map <Leader>s <Action>(FileStructurePopup)
-map <Leader>S <Action>(SplitVertically)
-map <Leader>j <Action>(GotoClass)
+" map <Leader>r <Action>(ChooseRunConfiguration)
 " map <Leader>r <Action>(Gradle.ExecuteTask)
+map <Leader>m <Action>(MoveEditorToOppositeTabGroup)
+map <Leader>/ <Action>(ShowErrorDescription)
 map <Leader><BS> <Action>(Refactorings.QuickListPopupAction)
 map <Leader><CR> <Action>(RunAnything)
-map <Leader>f <Action>(GotoFile)
-map <Leader>h <Action>(SplitHorizontally)
-map <Leader>g <Action>(Generate)
-map <Leader>w <Action>(JumpToLastWindow)
-" map <Leader>r <Action>(ChooseRunConfiguration)
-map <Leader>r <Action>(RecentFiles)
-map <Leader>u <Action>(FindUsages)
+map <Leader>S <Action>(SplitVertically)
 map <Leader>U <Action>(Unsplit)
-map <Leader>z <Action>(ToggleDistractionFreeMode)
-map <Leader>/ <Action>(ShowErrorDescription)
+map <Leader>c <Action>(CompileProject)
+map <Leader>f <Action>(GotoFile)
+map <Leader>g <Action>(Generate)
+map <Leader>h <Action>(SplitHorizontally)
+map <Leader>j <Action>(GotoClass)
+map <Leader>n <Action>(ShowNavBar)
+"map <Leader>n <Action>(NavbarPopupMenu)
+map <Leader>r <Action>(RecentFiles)
+map <Leader>s <Action>(FileStructurePopup)
+map <Leader>u <Action>(FindUsages)
+map <Leader>w <Action>(JumpToLastWindow)
 map <Leader>y <Action>(ReformatCode)
+map <Leader>z <Action>(ToggleDistractionFreeMode)
 map <leader>o <Action>(OptimizeImports)
 "nnoremap <c-\> <Action>(SplitVertically)
 "nnoremap <c--> <Action>(SplitHorizontally)
 "nnoremap <c-=> <Action>(Unsplit)
 nnoremap <c-m> <Action>(MoveEditorToOppositeTabGroup)
-map  Leader>m <Action>(MoveEditorToOppositeTabGroup)
 map <Enter> <Action>(ActivateTerminalToolWindow)
 
 map <C-e> <Action>(GotoNextError)
@@ -96,5 +103,7 @@ nnoremap <c-l> <c-w>l
 " I'm using the default IntelliJ behaviours instead.
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
+map <S-C-o> <Action>(JumpToLastChange)
+map <S-C-i> <Action>(JumpToNextChange)
 map g; <Action>(JumpToLastChange)
 map g, <Action>(JumpToNextChange)
