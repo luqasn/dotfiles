@@ -10,7 +10,7 @@ alias dockerps 'docker ps -q | xargs docker stats --no-stream'
 alias wlfind 'wl list|fzf'
 alias wllogs 'wlfind|xargs wl logs --open'
 alias wlstatus 'wlfind|xargs wl status -o json'
-alias wlvault 'wlstatus|jq -r '"'"'.deployment.description.components[0].env."$ref_secrets"[40:]'"'"'|xargs wl vault read -o dotenv'
+alias wlvault 'wlstatus|jq -r '"'"'.deployment.description.components[0].env."$ref_secrets"[40:]'"'"'|xargs wl vault read -o dotenv|sort'
 
 function vaultof 
   set SERVICE "$argv"
