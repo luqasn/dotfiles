@@ -36,3 +36,6 @@ set PATH /opt/homebrew/bin $PATH
 export EDITOR=nvim
 export LC_ALL=en_US.UTF-8
 
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
+
