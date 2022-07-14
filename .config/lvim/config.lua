@@ -174,7 +174,7 @@ lvim.plugins = {
     event = "BufRead",
     config = function()
       vim.cmd "highlight default link gitblame SpecialComment"
-      vim.g.gitblame_enabled = 0
+      vim.g.gitblame_enabled = 1
     end,
   },
   {
@@ -203,13 +203,27 @@ lvim.plugins = {
   {
     "Pocco81/AutoSave.nvim",
     config = function()
-      require("autosave").setup({
-        events = { "InsertLeave" },
-      })
+      require("autosave").setup {
+        events = { "InsertLeave", "FocusLost" },
+      }
     end,
   },
+  {
+    "wakatime/vim-wakatime"
+  },
+  {
+    "scalameta/nvim-metals",
+    config = function()
+      require("user.metals").config()
+    end,
+  },
+  {
+    "google/vim-jsonnet"
+  },
+  {
+    "wellle/targets.vim"
+  }
 }
-
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
@@ -223,3 +237,11 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.libsonnet" },
+  -- enable wrap mode for json files only
+  command = "set filetype=jsonnet",
+})
+lvim.autocommands.custom_groups = {
+  { "FileType", "scala,sbt", "lua require('user.metals').config()" }
+}
