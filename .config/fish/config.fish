@@ -1,7 +1,7 @@
 alias l "ls -al"
 
-alias vim "nvim"
-alias vi "nvim"
+alias vim "lvim"
+alias vi "lvim"
 
 alias config 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -33,7 +33,7 @@ set PATH $HOME/.local/bin $PATH
 set PATH /usr/local/opt/python/libexec/bin $PATH
 set PATH /opt/homebrew/bin $PATH
 
-export EDITOR=nvim
+export EDITOR=lvim
 export LC_ALL=en_US.UTF-8
 
 set -gx VOLTA_HOME "$HOME/.volta"
