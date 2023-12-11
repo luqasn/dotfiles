@@ -20,6 +20,7 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pp = push -u
   branches = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	recommit = !git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG
 [push]
 	default = current
 [rebase]
