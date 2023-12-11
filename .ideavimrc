@@ -1,5 +1,8 @@
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 set clipboard+=unnamed
-set idearefactormode=keep
+"set idearefactormode=keep
 set relativenumber
 set number
 set incsearch
@@ -7,10 +10,13 @@ set hlsearch
 set ignorecase
 set smartcase
 
+set which-key
+" disable the timeout option
+set notimeout
 " https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
 
 " https://youtrack.jetbrains.com/issue/VIM-1970 
-set set highlightedyank
+set highlightedyank
 
 " https://youtrack.jetbrains.com/issue/VIM-959
 set ideamarks
@@ -36,6 +42,7 @@ set NERDTree
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
 map <Del> :NERDTreeFocus<CR>
+map <Leader>e :NERDTreeToggle<CR>
 
 " https://github.com/JetBrains/ideavim/wiki/Select-mode
 " set selectmode-=template
@@ -46,9 +53,11 @@ map <Del> :NERDTreeFocus<CR>
 " https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
 set surround
 set easymotion
+set matchit
 
-nnoremap <SPACE> <Nop>
-let mapleader = " "
+nmap s <Plug>(easymotion-s)
+" map f <Plug>(easymotion-f)
+" map F <Plug>(easymotion-F)
 
 " map <Leader>r <Action>(ChooseRunConfiguration)
 " map <Leader>r <Action>(Gradle.ExecuteTask)
@@ -64,6 +73,7 @@ map <Leader>g <Action>(Generate)
 map <Leader>h <Action>(SplitHorizontally)
 map <Leader>j <Action>(GotoClass)
 map <Leader>n <Action>(ShowNavBar)
+map <Leader>p <Action>(ManageRecentProjects)
 "map <Leader>n <Action>(NavbarPopupMenu)
 map <Leader>r <Action>(RecentFiles)
 map <Leader>s <Action>(FileStructurePopup)
@@ -76,12 +86,14 @@ map <leader>o <Action>(OptimizeImports)
 "nnoremap <c--> <Action>(SplitHorizontally)
 "nnoremap <c-=> <Action>(Unsplit)
 nnoremap <c-m> <Action>(MoveEditorToOppositeTabGroup)
-map <Enter> <Action>(ActivateTerminalToolWindow)
+map <c-t> <Action>(ActivateTerminalToolWindow)
 
 map <C-e> <Action>(GotoNextError)
 map <S-C-e> <Action>(GotoPreviousError)
 "map <C-h> <Action>(TypeHierarchy)
 map <C-k> <Action>(EditorSelectWord)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
 
 "map <C-j> :m +1<CR>
 "map <C-k> :m -2<CR>
