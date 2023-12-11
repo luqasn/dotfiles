@@ -32,6 +32,7 @@ set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/.local/bin $PATH
 set PATH /usr/local/opt/python/libexec/bin $PATH
 set PATH /opt/homebrew/bin $PATH
+set PATH "/Applications/IntelliJ IDEA.app/Contents/MacOS" $PATH
 
 export EDITOR=lvim
 export LC_ALL=en_US.UTF-8
