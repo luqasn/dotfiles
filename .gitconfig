@@ -2,7 +2,7 @@
 	excludesfile = /Users/lucas/.gitignore_global
 [user]
 	name = Lucas Romero
-	email = lucas.romero@jimdo.com
+	email = luqasn@gmail.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -31,5 +31,6 @@
 [pull]
   ff = only
 
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+
+[includeIf "gitdir:~/Projects/A-Labs/"]
+  path = .gitconfig-a-labs
