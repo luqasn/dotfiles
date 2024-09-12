@@ -24,6 +24,8 @@ end
 
 alias pr "gh pr create -a @me $argv"
 alias purge-xamarin "find . -iname 'bin' -type d -o -iname 'obj' -type d | tr '\n' '\0' | xargs -0 rm -rf"
+alias pbcopy 'xsel --clipboard --input'
+alias pbpaste 'xsel --clipboard --output'
 
 export GOPATH=$HOME/go
 set PATH /usr/local/opt/gettext/bin $PATH
