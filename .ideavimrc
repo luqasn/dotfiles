@@ -1,7 +1,9 @@
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
-set clipboard+=unnamed
+"set clipboard+=unnamed
+set clipboard+=unnamedplus
+"set clipboard^=ideaput
 "set idearefactormode=keep
 set relativenumber
 set number
@@ -71,6 +73,7 @@ map <Leader>c <Action>(CompileProject)
 map <Leader>f <Action>(GotoFile)
 map <Leader>g <Action>(Generate)
 map <Leader>h <Action>(SplitHorizontally)
+map <leader>i <Action>(ParameterInfo)
 map <Leader>j <Action>(GotoClass)
 map <Leader>n <Action>(ShowNavBar)
 map <Leader>p <Action>(ManageRecentProjects)
