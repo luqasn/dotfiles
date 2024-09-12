@@ -21,6 +21,10 @@
 	pp = push -u
   branches = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 	recommit = !git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG
+  dft = difftool
+  dlog = "-c diff.external=difft log -p --ext-diff"
+  fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
+
 [push]
 	default = current
 [rebase]
@@ -30,6 +34,18 @@
   showUntrackedFiles = all
 [pull]
   ff = only
+
+[diff]
+  tool = difftastic
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
 
 
 [includeIf "gitdir:~/Projects/A-Labs/"]
