@@ -1,6 +1,10 @@
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
+set showmode
+set showcmd
+set visualbell
+
 "set clipboard+=unnamed
 set clipboard+=unnamedplus
 "set clipboard^=ideaput
@@ -118,7 +122,7 @@ nnoremap <c-l> <c-w>l
 " I'm using the default IntelliJ behaviours instead.
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
-map <S-C-o> <Action>(JumpToLastChange)
-map <S-C-i> <Action>(JumpToNextChange)
+map <S-C-o> <Action>(VcsShowPrevChangeMarker)
+map <S-C-i> <Action>(VcsShowNextChangeMarker)
 map g; <Action>(JumpToLastChange)
 map g, <Action>(JumpToNextChange)
